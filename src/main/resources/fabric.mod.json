@@ -1,0 +1,34 @@
+{
+	"schemaVersion": 1,
+	"id": "keyboard-noteblock",
+	"version": "${version}",
+	"name": "KeyBoard NoteBlock",
+	"description": "This mod is becoming controllable note block with keyboard.",
+	"authors": [
+		"rensato"
+	],
+	"license": "CC0-1.0",
+	"icon": "assets/keyboard-noteblock/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"io.rensatopc.github.main.KeyBoardNoteBlockMod"
+		]
+	},
+	"mixins": [
+		"keyboard-noteblock.mixins.json",
+		{
+			"config": "keyboard-noteblock.client.mixins.json",
+			"environment": "client"
+		}
+	],
+	"depends": {
+		"fabricloader": ">=0.15.3",
+		"minecraft": "~1.20.4",
+		"java": ">=17",
+		"fabric-api": "*"
+	},
+	"suggests": {
+		"another-mod": "*"
+	}
+}
