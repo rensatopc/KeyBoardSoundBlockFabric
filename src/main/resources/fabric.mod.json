@@ -8,7 +8,7 @@
 		"rensato"
 	],
 	"license": "CC0-1.0",
-	"icon": "assets/keyboard-noteblock/icon.png",
+	"icon": "assets/keyboardnoteblock/icon.png",
 	"environment": "*",
 	"entrypoints": {
 		"main": [
