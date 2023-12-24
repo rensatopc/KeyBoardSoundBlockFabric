@@ -1,6 +1,6 @@
 {
 	"schemaVersion": 1,
-	"id": "keyboard-noteblock",
+	"id": "keyboardnoteblock",
 	"version": "${version}",
 	"name": "KeyBoard NoteBlock",
 	"description": "This mod is becoming controllable note block with keyboard.",
@@ -16,9 +16,9 @@
 		]
 	},
 	"mixins": [
-		"keyboard-noteblock.mixins.json",
+		"keyboardnoteblock.mixins.json",
 		{
-			"config": "keyboard-noteblock.client.mixins.json",
+			"config": "keyboardnoteblock.client.mixins.json",
 			"environment": "client"
 		}
 	],

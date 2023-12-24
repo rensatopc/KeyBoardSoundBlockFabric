@@ -1,8 +1,3 @@
-# Automatically build the project and run any configured tests for every push
-# and submitted pull request. This can help catch issues that only occur on
-# certain platforms or Java versions, and provides a first line of defence
-# against bad commits.
-
 name: build
 on: [pull_request, push]
 
@@ -10,13 +5,8 @@ jobs:
   build:
     strategy:
       matrix:
-        # Use these Java versions
-        java: [
-          17,    # Current Java LTS & minimum supported by Minecraft
-          21,    # Current Java LTS
-        ]
-        # and run on both Linux and Windows
-        os: [ubuntu-22.04, windows-2022]
+        java: 17
+        os: ubuntu-23.10
     runs-on: ${{ matrix.os }}
     steps:
       - name: checkout repository
@@ -29,13 +19,11 @@ jobs:
           java-version: ${{ matrix.java }}
           distribution: 'microsoft'
       - name: make gradle wrapper executable
-        if: ${{ runner.os != 'Windows' }}
         run: chmod +x ./gradlew
       - name: build
         run: ./gradlew build
-      - name: capture build artifacts
-        if: ${{ runner.os == 'Linux' && matrix.java == '21' }} # Only upload artifacts built from latest java on one OS
+      - name: capture build artifacts # Only upload artifacts built from latest java on one OS
         uses: actions/upload-artifact@v3
         with:
-          name: Artifacts
+          name: BuildedJar
           path: build/libs/
